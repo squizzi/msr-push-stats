@@ -1,6 +1,8 @@
 #!/usr/bin/env python
-# Find and fix corrupted DTR scanning layers and images
-# Kyle Squizzato <kyle.squizzato@docker.com>
+# msr-push-stats
+# Determine total amount of image data pushed on a per user basis against an
+# MSR 2 environment.
+# Kyle Squizzato <ksquizzato@mirantis.com>
 
 import argparse
 import docker
