@@ -35,6 +35,26 @@ docker run --rm -it \
     squizzi/msr-push-stats -u user1 user2 user3
 ```
 
+the script will output username, id and pushed data summaries for each user requested.
+
+```
+Username: user1
+Id: "7eba8486-38d5-4b72-ad8c-d3d18d345631"
+Pushed data: 352.1 MB
+
+Username: user2
+Id: "0de81894-5a1e-11ed-be80-7085c2851841"
+Pushed data: 130.3 MB
+```
+
+optionally, `--json` can be used to output this information as a list of json entries.  Use `--bytes` to modify the `pushed_data` field to an int representing bytes pushed instead of a human readable string.
+
+```json
+[
+    { username: "user1", id: "7eba8486-38d5-4b72-ad8c-d3d18d345631", pushed_data: 352070705 },
+]
+```
+
 ### Optional arguments
 * `--bytes`: Print the pushed data size results in bytes (Default: humanized size values)
 * `--json`: Output statistic data in json format.
