@@ -111,13 +111,15 @@ def query_user_list(user_list, replica_id, db_addr, humanize_size=True, format_j
         userid, result = query_push_stats(user, replica_id, db_addr)
         if humanize_size:
             result = humanize.naturalsize(result)
+        else:
+            result = int(result)
         if not format_json:
             print(
 """
-Username: {1}
-Id: {0}
+Username: {0}
+Id: {1}
 Pushed data: {2}
-""".format(userid, user, result))
+""".format(user, userid, result))
         else:
             json_result = result_to_json(userid, user, result)
             logging.debug("Appending json result: {0} to data set".format(json_result))
@@ -127,7 +129,7 @@ Pushed data: {2}
         print(json.dumps(data, indent=4))
 
 """
-result_to_json formats output of statistics as a json entry of:
+result_to_json formats output of statistics as a json:
 {
     username: example,
     id: 12345,
@@ -135,7 +137,13 @@ result_to_json formats output of statistics as a json entry of:
 }
 """
 def result_to_json(userid, user, result):
-    return json.dumps({'username': user, 'id': userid, 'pushed_data': result})
+    v = {
+        "username": user,
+        "id": userid.strip('\"'),
+        "pushed_data": result,
+    }
+
+    return v
 
 def main():
     parser = argparse.ArgumentParser(
