@@ -10,8 +10,8 @@ and does not work against MSR 3.
 > images on the backend blob store would be the size of the single image.
 
 ## Usage
-1. Download an MKE client bundle for the environment.
-2. Extract the client bundle into a new directory, for example: `mke-clientbundle`
+1. Download an [MKE client bundle for the environment](https://docs.mirantis.com/mke/3.6/ops/access-cluster/client-bundle/download-client-bundle.html).
+2. Extract the client bundle into a new directory, for example: `mke-clientbundle` and `cd` into the directory.
 3. Check the included `env.sh` file inside the client bundle directory to
 determine what to set needed environment vars to:
 
