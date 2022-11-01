@@ -9,6 +9,11 @@ and does not work against MSR 3.
 > same image associated with their accounts but the total consumption of those
 > images on the backend blob store would be the size of the single image.
 
+It works by querying the user account id from the eNZi database within MKE then
+using that user id to query the `manifests` table within MSR's RethinkDB.  It then
+sums the size of the found manifests associated with tags that have been pushed by
+that user id to get the final result.
+
 ## Usage
 1. Download an [MKE client bundle for the environment](https://docs.mirantis.com/mke/3.6/ops/access-cluster/client-bundle/download-client-bundle.html).
 2. Extract the client bundle into a new directory, for example: `mke-clientbundle` and `cd` into the directory.
