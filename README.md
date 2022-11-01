@@ -51,7 +51,11 @@ optionally, `--json` can be used to output this information as a list of json en
 
 ```json
 [
-    { username: "user1", id: "7eba8486-38d5-4b72-ad8c-d3d18d345631", pushed_data: 352070705 },
+    { 
+        username: "user1", 
+        id: "7eba8486-38d5-4b72-ad8c-d3d18d345631", 
+        pushed_data: 352070705 
+    }
 ]
 ```
 
